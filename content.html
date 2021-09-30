@@ -73,11 +73,24 @@
                 <div class="Depo">
                     <div class="txt">
                         <p>Deposit Amount:</p>
-                        <h2>$100</h2>
+                        <h2>₹100</h2>
                     </div>
                     <div class="contbtn">
                         <button class="btn" type="submit" style="margin-top:20px;width: 150px; height: 40px;">Contact Host</button>
-                        <button class="btn" type="submit" style="margin-top:20px;width: 200px; height: 40px;">View Phone Number</button>
+                        <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#phno" style="margin-top:20px;width: 200px; height: 40px;">View Phone Number</button>
+                        <div class="modal fade" id="phno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h6 class="modal-title" id="exampleModalLabel">Owner Phone Number</h6>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  Phone NO: 1234567890
+                                </div>
+                              </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -126,10 +139,6 @@
                 </ul>
                 <ul class="gridItems">
                     <div class="info">No. of Beds</div>
-                    <div class="val">abc</div>
-                </ul>
-                <ul class="gridItems">
-                    <div class="info">Owner Phone no</div>
                     <div class="val">abc</div>
                 </ul>
             </ul>
