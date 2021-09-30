@@ -202,7 +202,6 @@
     color: black;
     font-size: 1rem;
 }
-
 /* Css for Homepage */
 .TopNav{
     background-color: #57CC99;
@@ -231,12 +230,16 @@
 
 
 .btn.btn-outline.my-2.my-sm-0{
+    color: #fff;
     border: 1px solid #fff;
     transition: .35s;
+    width: 100px;
+    height: 38px;
 }
 
 .btn.btn-outline.my-2.my-sm-0:hover {
     background-color: #0ceb8a;
+
 }
 
 /* CSS for card */
@@ -246,6 +249,7 @@
 }
 .card .card-img-top{
     height: 250px;
+    object-fit:contain;
 }
 .footer{
     display: flex;
@@ -259,6 +263,7 @@
     display: flex;
     flex-direction: column;
 }
-.card .card-body{
-    
+.card .card-body p.deposit{
+    display: inline-block;
+    margin-left: 90px;
 }
