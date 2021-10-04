@@ -10,6 +10,27 @@
         <link rel="stylesheet" href="content.css" />
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+        <script type="text/javascript">
+            function sendEmail() {
+                let form = document.getElementById("con-form");
+                let name = document.getElementById("recipient-name");
+                let phone = document.getElementById("recipient-phone");
+                let messageText = document.getElementById("message-text");
+                Email.send({
+                    Host: "smtp.gmail.com",
+                    Username: "testforprojects01@gmail.com",
+                    Password: "testforemail@2001",
+                    To: "nihalshah07@gmail.com",
+                    From: "testforprojects01@gmail.com",
+                    Subject: "Request from a User",
+                    Body: "Someone is interested in the PG you've listed on our website.<h2>Name: " +name.value +"</h2><h2>Phone No:"+phone.value+"</h2><h2>Message:"+ messageText.value +"</h2>",
+                }).then(function (message) {
+                    alert("Owner has been notified and shall contact you soon!");
+                });
+            }
+        </script>
     </head>
     <body>
         <!-- Navigation Bar  -->
@@ -21,6 +42,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Register a Property</a></li>
                     </ul>   
                     <button class="btn btn-outline my-2 my-sm-0" type="submit">Logout</button>              
@@ -76,7 +98,40 @@
                         <h2>₹100</h2>
                     </div>
                     <div class="contbtn">
-                        <button class="btn" type="submit" style="margin-top:20px;width: 150px; height: 40px;">Contact Host</button>
+                        <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#email" style="margin-top:20px;width: 150px; height: 40px;">Contact Host</button>
+                        <div class="modal fade" id="email" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h6 class="modal-title" id="exampleModalLabel">ejs Title</h6>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="con-form">
+                                        <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Name:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="mb-2">
+                                            <label for="recipient-name" class="col-form-label">Email</label>
+                                            <input type="email" class="form-control" id="recipient-email">
+                                        </div><div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Phone Number</label>
+                                            <input type="number" class="form-control" id="recipient-phone" required >
+                                        </div>
+                                        <div class="mb-2">
+                                            <label for="message-text" class="col-form-label">Message</label>
+                                            <textarea required class="form-control" id="message-text"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button onclick="sendEmail()" type="submit" class="btn btn-primary">Send message</button>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
                         <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#phno" style="margin-top:20px;width: 200px; height: 40px;">View Phone Number</button>
                         <div class="modal fade" id="phno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
@@ -99,7 +154,7 @@
             <ul class="congrid" style="padding: 0 auto;">
                 <ul class="gridItems">
                     <div class="info">Owner Name</div>
-                    <div class="val">NIhal Nageshwar Shah</div>
+                    <div class="val">Nihal Nageshwar Shah</div>
                 </ul>
                 <ul class="gridItems">
                     <div class="info">Owner Email</div>
